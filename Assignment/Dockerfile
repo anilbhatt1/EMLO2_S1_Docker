@@ -10,4 +10,4 @@ COPY . .
 
 ENTRYPOINT ["python3", "main.py"]
 
-CMD['mobilenetv3_large_100', 'https://datasets-server.huggingface.co/assets/imagenet-1k/--/default/test/12/image/image.jpg']
+CMD ['mobilenetv3_large_100', 'https://datasets-server.huggingface.co/assets/imagenet-1k/--/default/test/12/image/image.jpg']

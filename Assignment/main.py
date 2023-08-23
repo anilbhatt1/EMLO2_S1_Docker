@@ -41,5 +41,6 @@ if __name__ == '__main__':
     IMAGENET_1k_URL = 'https://storage.googleapis.com/bit_models/ilsvrc2012_wordnet_lemmas.txt'
     IMAGENET_1k_LABELS = requests.get(IMAGENET_1k_URL).text.strip().split('\n')
     preds = [{'label': IMAGENET_1k_LABELS[idx], 'value': round(val.item(), 3), 'idx':idx.item()} for val, idx in zip(values, indices)]
+    print(f'Inferencing with {model_name}')
     print(f'Top Prediction : {json.dumps(preds[0])}')
     print(f'Top 5 Predictions : {json.dumps(preds)}')

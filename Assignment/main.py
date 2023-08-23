@@ -9,13 +9,16 @@ import requests
 from PIL import Image
 from io import BytesIO
 import timm
+import json
+
+default_image_path = 'https://datasets-server.huggingface.co/assets/imagenet-1k/--/default/test/12/image/image.jpg'
 
 parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
 
 parser.add_argument('--model-name', type=str, default='mobilenetv3_large_100', metavar='N',
                     help='Timm model to be used for inferencing')
 
-parser.add_argument('--image-path', type=str, default='./dog.jpg', metavar='N',
+parser.add_argument('--image-path', type=str, default=default_image_path, metavar='N',
                     help='Image path for inferencing')
 
 if __name__ == '__main__':
@@ -38,6 +41,5 @@ if __name__ == '__main__':
     IMAGENET_1k_URL = 'https://storage.googleapis.com/bit_models/ilsvrc2012_wordnet_lemmas.txt'
     IMAGENET_1k_LABELS = requests.get(IMAGENET_1k_URL).text.strip().split('\n')
     preds = [{'label': IMAGENET_1k_LABELS[idx], 'value': round(val.item(), 3), 'idx':idx.item()} for val, idx in zip(values, indices)]
-    print(preds)
-
-
+    print(f'Top Prediction : {json.dumps(preds[0])}')
+    print(f'Top 5 Predictions : {json.dumps(preds)}')

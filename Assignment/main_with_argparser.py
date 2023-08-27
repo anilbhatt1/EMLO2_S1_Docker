@@ -10,8 +10,6 @@ from PIL import Image
 from io import BytesIO
 import timm
 import json
-import logging
-
 
 default_image_path = 'https://datasets-server.huggingface.co/assets/imagenet-1k/--/default/test/12/image/image.jpg'
 
@@ -25,7 +23,6 @@ parser.add_argument('--image-path', type=str, default=default_image_path, metava
 
 if __name__ == '__main__':
     args = parser.parse_args()
-    logging.disable(logging.CRITICAL)
     img_path = args.image_path
     if 'http' in img_path:
         image = Image.open(requests.get(img_path, stream=True).raw)

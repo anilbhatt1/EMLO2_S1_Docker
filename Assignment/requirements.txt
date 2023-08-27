@@ -1,3 +1,8 @@
-timm
+timm==0.9.5
 https://download.pytorch.org/whl/cpu/torch-2.0.0%2Bcpu-cp39-cp39-linux_x86_64.whl
 https://download.pytorch.org/whl/cpu/torchvision-0.15.1%2Bcpu-cp39-cp39-linux_x86_64.whl
+
+
+# --extra-index-url https://download.pytorch.org/whl/cpu/
+# torch==2.0.0+cpu
+# torchvision==0.15.1+cpu
